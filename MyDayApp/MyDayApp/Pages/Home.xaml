@@ -49,7 +49,7 @@
                 
             </StackLayout>
 
-            <Button Text="Add" HorizontalOptions="Center"/>
+            <Button Text="Add" HorizontalOptions="Center" Clicked="GoToCreateTaskPage"/>
 
         </StackLayout>
     </ContentPage.Content>

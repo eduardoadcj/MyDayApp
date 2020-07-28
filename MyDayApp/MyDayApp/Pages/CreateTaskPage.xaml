@@ -7,9 +7,40 @@
              x:Class="MyDayApp.Pages.CreateTaskPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            
+            <Label Text="Name"/>
+            <Entry x:Name="TxtName"/>
+            
+            <Label Text="Priority" FontAttributes="Bold"/>
+            <StackLayout x:Name="PrioritysLayout">
+                
+                <StackLayout Spacing="10" Orientation="Horizontal">
+                    <Image />
+                    <Label Text="Urgent and Important" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+                <StackLayout Spacing="10" Orientation="Horizontal">
+                    <Image />
+                    <Label Text="Urgent and Not Important" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+                <StackLayout Spacing="10" Orientation="Horizontal">
+                    <Image />
+                    <Label Text="Not Urgent and Important" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+                <StackLayout Spacing="10" Orientation="Horizontal">
+                    <Image />
+                    <Label Text="Not Urgent and Not Important" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+            </StackLayout>
+
+            <Button Text="Add" 
+                    TextColor="White"
+                    BackgroundColor="Blue"
+                    HorizontalOptions="End"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

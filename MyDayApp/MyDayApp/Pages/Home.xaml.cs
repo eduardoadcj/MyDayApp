@@ -13,5 +13,10 @@ namespace MyDayApp.Pages {
         public Home() {
             InitializeComponent();
         }
+
+        private void GoToCreateTaskPage(object sender, EventArgs args) {
+            Navigation.PushAsync(new CreateTaskPage());
+        }
+
     }
 }
