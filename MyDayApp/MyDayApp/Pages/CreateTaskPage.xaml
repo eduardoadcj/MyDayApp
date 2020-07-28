@@ -12,25 +12,53 @@
             <Entry x:Name="TxtName"/>
             
             <Label Text="Priority" FontAttributes="Bold"/>
-            <StackLayout x:Name="PrioritysLayout">
+            <StackLayout x:Name="PrioritysLayout" Spacing="10">
                 
                 <StackLayout Spacing="10" Orientation="Horizontal">
-                    <Image />
+                    <Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android, iOS" Value="p4.png"/>
+                                <On Platform="UWP" Value="Resources/p4.png"/>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
                     <Label Text="Urgent and Important" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
 
                 <StackLayout Spacing="10" Orientation="Horizontal">
-                    <Image />
+                    <Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android, iOS" Value="p3.png"/>
+                                <On Platform="UWP" Value="Resources/p3.png"/>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
                     <Label Text="Urgent and Not Important" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
 
                 <StackLayout Spacing="10" Orientation="Horizontal">
-                    <Image />
+                    <Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android, iOS" Value="p2.png"/>
+                                <On Platform="UWP" Value="Resources/p2.png"/>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
                     <Label Text="Not Urgent and Important" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
 
                 <StackLayout Spacing="10" Orientation="Horizontal">
-                    <Image />
+                    <Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android, iOS" Value="p1.png"/>
+                                <On Platform="UWP" Value="Resources/p1.png"/>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
                     <Label Text="Not Urgent and Not Important" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
 
