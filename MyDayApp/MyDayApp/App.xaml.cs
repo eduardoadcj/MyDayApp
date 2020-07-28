@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyDayApp.Pages;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,7 +8,7 @@ namespace MyDayApp {
         public App() {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new Home());
         }
 
         protected override void OnStart() {
