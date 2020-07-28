@@ -6,14 +6,14 @@
              mc:Ignorable="d"
              x:Class="MyDayApp.Pages.CreateTaskPage">
     <ContentPage.Content>
-        <StackLayout>
-            
+        <StackLayout Padding="20">
+
             <Label Text="Name"/>
             <Entry x:Name="TxtName"/>
-            
+
             <Label Text="Priority" FontAttributes="Bold"/>
             <StackLayout x:Name="PrioritysLayout" Spacing="10">
-                
+
                 <StackLayout Spacing="10" Orientation="Horizontal">
                     <Image>
                         <Image.Source>
