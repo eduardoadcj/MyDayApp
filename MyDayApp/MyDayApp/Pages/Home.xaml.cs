@@ -1,6 +1,7 @@
 ﻿using MyDayApp.Model;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -26,8 +27,9 @@ namespace MyDayApp.Pages {
         }
 
         private void SetCurrentDate() {
-            var now = DateTime.Now;
-            TodayDate.Text = now.DayOfWeek.ToString() + ", " + now.ToString("dd/MM/yyyy");
+            CultureInfo culture = new CultureInfo("pt-BR");
+            var data = DateTime.Now.ToString("dddd, dd {0} MMMM {0} yyyy", culture);
+            TodayDate.Text = string.Format(data, "de");
         }
 
         private void LoadList() {
