@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,8 @@ namespace MyDayApp.Model {
 
         public List<Task> Get() {
             if (App.Current.Properties.ContainsKey("tasks")) {
-                Tasks = (List<Task>)App.Current.Properties["tasks"];
+                var json = App.Current.Properties["tasks"] as string;
+                Tasks = JsonConvert.DeserializeObject<List<Task>>(json);
             } else {
                 Tasks = new List<Task>();
             }
@@ -43,7 +45,8 @@ namespace MyDayApp.Model {
             if (App.Current.Properties.ContainsKey("tasks")) {
                 App.Current.Properties.Remove("tasks");
             }
-            App.Current.Properties.Add("tasks", Tasks);
+            var json = JsonConvert.SerializeObject(Tasks);
+            App.Current.Properties.Add("tasks", json);
         }
 
     }
