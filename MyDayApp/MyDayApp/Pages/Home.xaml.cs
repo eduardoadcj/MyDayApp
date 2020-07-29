@@ -109,8 +109,10 @@ namespace MyDayApp.Pages {
             }
             TapGestureRecognizer checkTap = new TapGestureRecognizer();
             checkTap.Tapped += delegate {
-                this.TaskManager.Finalize(index);
-                this.LoadList();
+                if(task.Finalization == null) {
+                    this.TaskManager.Finalize(index);
+                    this.LoadList();
+                }
             };
             check.GestureRecognizers.Add(checkTap);
 
