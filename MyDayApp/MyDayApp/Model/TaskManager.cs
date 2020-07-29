@@ -29,10 +29,7 @@ namespace MyDayApp.Model {
         }
 
         public void Finalize(int index) {
-            var oldTask = Tasks.ElementAt(index);
-            Tasks.RemoveAt(index);
-            oldTask.Finalization = DateTime.Now;
-            Tasks.Add(oldTask);
+            Tasks[index].Finalization = DateTime.Now;
             Persist();
         }
 
