@@ -14,11 +14,11 @@
                        HorizontalOptions="CenterAndExpand" 
                        VerticalOptions="CenterAndExpand"
                        FontSize="24"/>
-                <Label Text="28/07/2020" 
-                       HorizontalOptions="Start" 
+                <Label HorizontalOptions="Start" 
                        VerticalOptions="End" 
                        TextColor="White"
-                       Margin="10"/>
+                       Margin="10"
+                       x:Name="TodayDate"/>
             </StackLayout>
             
             <StackLayout x:Name="TasksLayout" Padding="10" Spacing="10">
