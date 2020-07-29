@@ -79,7 +79,8 @@
             <Button Text="Add" 
                     TextColor="White"
                     BackgroundColor="Blue"
-                    HorizontalOptions="End"/>
+                    HorizontalOptions="End"
+                    Clicked="AttemptSave"/>
 
         </StackLayout>
     </ContentPage.Content>

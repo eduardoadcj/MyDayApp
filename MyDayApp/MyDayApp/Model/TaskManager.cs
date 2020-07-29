@@ -6,32 +6,36 @@ using System.Text;
 namespace MyDayApp.Model {
     public class TaskManager {
 
-        private List<Task> tasks { get; set; }
+        private List<Task> Tasks { get; set; }
+
+        public TaskManager() {
+            Tasks = Get();
+        }
 
         public void Save(Task task) {
-            tasks.Add(task);
+            Tasks.Add(task);
             Persist();
         }
 
         public List<Task> Get() {
             if (App.Current.Properties.ContainsKey("tasks")) {
-                tasks = (List<Task>)App.Current.Properties["tasks"];
+                Tasks = (List<Task>)App.Current.Properties["tasks"];
             } else {
-                tasks = new List<Task>();
+                Tasks = new List<Task>();
             }
-            return tasks;
+            return Tasks;
         }
 
         public void Finalize(int index) {
-            var oldTask = tasks.ElementAt(index);
-            tasks.RemoveAt(index);
+            var oldTask = Tasks.ElementAt(index);
+            Tasks.RemoveAt(index);
             oldTask.Finalization = new DateTime();
-            tasks.Add(oldTask);
+            Tasks.Add(oldTask);
             Persist();
         }
 
         public void Remove(Task task) {
-            tasks.Remove(task);
+            Tasks.Remove(task);
             Persist();
         }
 
@@ -39,7 +43,7 @@ namespace MyDayApp.Model {
             if (App.Current.Properties.ContainsKey("tasks")) {
                 App.Current.Properties.Remove("tasks");
             }
-            App.Current.Properties.Add("tasks", tasks);
+            App.Current.Properties.Add("tasks", Tasks);
         }
 
     }
