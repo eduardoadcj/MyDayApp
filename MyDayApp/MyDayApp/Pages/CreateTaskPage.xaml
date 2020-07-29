@@ -11,8 +11,8 @@
             <Label Text="Name"/>
             <Entry x:Name="TxtName"/>
 
-            <Label Text="Priority" FontAttributes="Bold"/>
-            <StackLayout x:Name="PrioritysLayout" Spacing="10">
+            <Label Padding="0, 20, 0, 10" Text="Priority" FontAttributes="Bold"/>
+            <StackLayout x:Name="PrioritysLayout" Spacing="20">
 
                 <StackLayout Spacing="10" Orientation="Horizontal">
                     <Image>
@@ -23,7 +23,10 @@
                             </OnPlatform>
                         </Image.Source>
                     </Image>
-                    <Label Text="Urgent and Important" HorizontalOptions="FillAndExpand"/>
+                    <Label TextColor="Gray" Text="Urgent and Important" HorizontalOptions="FillAndExpand"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPrioritySelected"/>
+                    </StackLayout.GestureRecognizers>
                 </StackLayout>
 
                 <StackLayout Spacing="10" Orientation="Horizontal">
@@ -35,7 +38,10 @@
                             </OnPlatform>
                         </Image.Source>
                     </Image>
-                    <Label Text="Urgent and Not Important" HorizontalOptions="FillAndExpand"/>
+                    <Label TextColor="Gray" Text="Urgent and Not Important" HorizontalOptions="FillAndExpand"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPrioritySelected"/>
+                    </StackLayout.GestureRecognizers>
                 </StackLayout>
 
                 <StackLayout Spacing="10" Orientation="Horizontal">
@@ -47,7 +53,10 @@
                             </OnPlatform>
                         </Image.Source>
                     </Image>
-                    <Label Text="Not Urgent and Important" HorizontalOptions="FillAndExpand"/>
+                    <Label TextColor="Gray" Text="Not Urgent and Important" HorizontalOptions="FillAndExpand"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPrioritySelected"/>
+                    </StackLayout.GestureRecognizers>
                 </StackLayout>
 
                 <StackLayout Spacing="10" Orientation="Horizontal">
@@ -59,7 +68,10 @@
                             </OnPlatform>
                         </Image.Source>
                     </Image>
-                    <Label Text="Not Urgent and Not Important" HorizontalOptions="FillAndExpand"/>
+                    <Label TextColor="Gray" Text="Not Urgent and Not Important" HorizontalOptions="FillAndExpand"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPrioritySelected"/>
+                    </StackLayout.GestureRecognizers>
                 </StackLayout>
 
             </StackLayout>
