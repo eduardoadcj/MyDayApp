@@ -31,7 +31,7 @@ namespace MyDayApp.Model {
         public void Finalize(int index) {
             var oldTask = Tasks.ElementAt(index);
             Tasks.RemoveAt(index);
-            oldTask.Finalization = new DateTime();
+            oldTask.Finalization = DateTime.Now;
             Tasks.Add(oldTask);
             Persist();
         }

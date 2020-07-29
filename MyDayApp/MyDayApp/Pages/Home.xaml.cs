@@ -33,11 +33,14 @@ namespace MyDayApp.Pages {
         private void LoadList() {
             TasksLayout.Children.Clear();
             List<Task> list = TaskManager.Get();
-            foreach(var task in list)
-                AddLine(task);
+            int i = 0;
+            foreach(var task in list) {
+                AddLine(i, task);
+                i++;
+            }
         }
 
-        private void AddLine(Task task) {
+        private void AddLine(int index, Task task) {
 
             Image delete = new Image() {
                 VerticalOptions = LayoutOptions.Center,
@@ -46,6 +49,12 @@ namespace MyDayApp.Pages {
             if (Device.RuntimePlatform == Device.UWP) {
                 delete.Source = ImageSource.FromFile("Resources/Delete.png");
             }
+            TapGestureRecognizer deleteTap = new TapGestureRecognizer();
+            deleteTap.Tapped += delegate {
+                this.TaskManager.Remove(task);
+                this.LoadList();
+            };
+            delete.GestureRecognizers.Add(deleteTap);
 
             Image priority = new Image() {
                 VerticalOptions = LayoutOptions.Center,
@@ -78,7 +87,7 @@ namespace MyDayApp.Pages {
                 DateTime finalizationDate = task.Finalization.Value;
                 String finalizationText = "Ended in " +
                     finalizationDate.DayOfWeek.ToString() + ", " +
-                    finalizationDate.ToString("dd/MM/yyyy - hh:mm" + "h");
+                    finalizationDate.ToString("dd/MM/yyyy - hh:mm") + "h";
                 Label finalization = new Label() {
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     TextColor = Color.Gray,
@@ -90,13 +99,20 @@ namespace MyDayApp.Pages {
                 ((StackLayout)centerStack).Children.Add(finalization);
             }
 
+            var checkImage = task.Finalization == null ? "CheckOff.png" : "CheckOn.png";
             Image check = new Image() {
                 VerticalOptions = LayoutOptions.Center,
-                Source = ImageSource.FromFile("CheckOff.png")
+                Source = ImageSource.FromFile(checkImage)
             };
             if(Device.RuntimePlatform == Device.UWP) {
-                check.Source = ImageSource.FromFile("Resources/CheckOff.png");
+                check.Source = ImageSource.FromFile("Resources/"+checkImage);
             }
+            TapGestureRecognizer checkTap = new TapGestureRecognizer();
+            checkTap.Tapped += delegate {
+                this.TaskManager.Finalize(index);
+                this.LoadList();
+            };
+            check.GestureRecognizers.Add(checkTap);
 
             StackLayout line = new StackLayout {
                 Orientation = StackOrientation.Horizontal,
